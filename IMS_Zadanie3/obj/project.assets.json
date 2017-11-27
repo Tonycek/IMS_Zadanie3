@@ -23605,10 +23605,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\users\\tono\\documents\\visual studio 2017\\Projects\\IMS_Zadanie3\\IMS_Zadanie3\\IMS_Zadanie3.csproj",
+      "projectUniqueName": "C:\\Users\\Tono\\Documents\\Visual Studio 2017\\Projects\\IMS_Zadanie3\\IMS_Zadanie3\\IMS_Zadanie3.csproj",
       "projectName": "IMS_Zadanie3",
-      "projectPath": "c:\\users\\tono\\documents\\visual studio 2017\\Projects\\IMS_Zadanie3\\IMS_Zadanie3\\IMS_Zadanie3.csproj",
-      "outputPath": "c:\\users\\tono\\documents\\visual studio 2017\\Projects\\IMS_Zadanie3\\IMS_Zadanie3\\obj\\",
+      "projectPath": "C:\\Users\\Tono\\Documents\\Visual Studio 2017\\Projects\\IMS_Zadanie3\\IMS_Zadanie3\\IMS_Zadanie3.csproj",
+      "outputPath": "C:\\Users\\Tono\\Documents\\Visual Studio 2017\\Projects\\IMS_Zadanie3\\IMS_Zadanie3\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "uap10.0.10586"

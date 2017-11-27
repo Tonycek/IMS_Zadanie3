@@ -29,6 +29,10 @@
             Width="150"
             Height="50"/>
 
+        <Button x:ConnectionId='5' 
+            Content="Vyhodnot"
+                                />
+
     </StackPanel>
 </Page>
 

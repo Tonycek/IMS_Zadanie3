@@ -29,5 +29,9 @@
             Width="150"
             Height="50"/>
 
+        <Button 
+            Content="Vyhodnot"
+            Click="Button_Click"/>
+
     </StackPanel>
 </Page>

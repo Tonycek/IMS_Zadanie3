@@ -15,6 +15,10 @@
       <RootProperty Name="Height" />
       <RootProperty Name="IsReadOnly" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Content" />
+      <RootEvent Name="Click" />
+    </RootType>
     <RootType FullName="IMS_Zadanie3.MainPage" />
   </Roots.RootTypes>
 </Roots>

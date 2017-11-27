@@ -34,7 +34,7 @@ namespace IMS_Zadanie3
         public MainPage()
         {
             this.InitializeComponent();
-            InvokeRequestResponseService("4","12").Wait();
+            //InvokeRequestResponseService("4","12").Wait();
         }
 
         public async void NastavTextbox(string slovo)
@@ -42,7 +42,26 @@ namespace IMS_Zadanie3
            // await Task.Run(() => ComputeNextMove(slovo));
             await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                textbox.Text = slovo;
+                double znamka = Double.Parse(slovo);
+                string znamk;
+                if (znamka < 0.65)
+                    znamk = "A";
+
+                else if (znamka >= 0.65 && znamka < 1.3)
+                    znamk = "B";
+
+                else if (znamka >= 1.3 && znamka < 2.05)
+                    znamk = "C";
+
+                else if (znamka >= 2.05 && znamka < 3.4)
+                    znamk = "D";
+
+                else if (znamka >= 3.4 && znamka < 4.2)
+                    znamk = "E";
+
+                else
+                    znamk = "F";
+                textbox.Text = znamk;
             });
         }
 
@@ -231,11 +250,11 @@ namespace IMS_Zadanie3
                 //      result = await DoSomeTask().ConfigureAwait(false)
 
                 HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest).ConfigureAwait(false);
-                HttpResponseMessage response1 = await client.PostAsJsonAsync("", scoreRequest1).ConfigureAwait(false);
-                HttpResponseMessage response2 = await client.PostAsJsonAsync("", scoreRequest2).ConfigureAwait(false);
-                HttpResponseMessage response3 = await client.PostAsJsonAsync("", scoreRequest3).ConfigureAwait(false);
-                HttpResponseMessage response4 = await client.PostAsJsonAsync("", scoreRequest4).ConfigureAwait(false);
-                HttpResponseMessage response5 = await client.PostAsJsonAsync("", scoreRequest5).ConfigureAwait(false);
+                //HttpResponseMessage response1 = await client.PostAsJsonAsync("", scoreRequest1).ConfigureAwait(false);
+                //HttpResponseMessage response2 = await client.PostAsJsonAsync("", scoreRequest2).ConfigureAwait(false);
+                //HttpResponseMessage response3 = await client.PostAsJsonAsync("", scoreRequest3).ConfigureAwait(false);
+                //HttpResponseMessage response4 = await client.PostAsJsonAsync("", scoreRequest4).ConfigureAwait(false);
+                //HttpResponseMessage response5 = await client.PostAsJsonAsync("", scoreRequest5).ConfigureAwait(false);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -257,107 +276,112 @@ namespace IMS_Zadanie3
                     Console.WriteLine(responseContent);
                 }
 
-                if (response1.IsSuccessStatusCode)
-                {
-                    string result = await response1.Content.ReadAsStringAsync();
-                    Console.WriteLine("Result: {0}", result);
-                    string substri = result.Substring(result.IndexOf("Scored Labels") + 16, 4);
-                    NastavTextbox(substri);
+                //if (response1.IsSuccessStatusCode)
+                //{
+                //    string result = await response1.Content.ReadAsStringAsync();
+                //    Console.WriteLine("Result: {0}", result);
+                //    string substri = result.Substring(result.IndexOf("Scored Labels") + 16, 4);
+                //    NastavTextbox(substri);
 
-                }
-                else
-                {
-                    Console.WriteLine(string.Format("The request failed with status code: {0}", response1.StatusCode));
+                //}
+                //else
+                //{
+                //    Console.WriteLine(string.Format("The request failed with status code: {0}", response1.StatusCode));
 
-                    // Print the headers - they include the requert ID and the timestamp,
-                    // which are useful for debugging the failure
-                    Console.WriteLine(response1.Headers.ToString());
+                //    // Print the headers - they include the requert ID and the timestamp,
+                //    // which are useful for debugging the failure
+                //    Console.WriteLine(response1.Headers.ToString());
 
-                    string responseContent = await response1.Content.ReadAsStringAsync();
-                    Console.WriteLine(responseContent);
-                }
+                //    string responseContent = await response1.Content.ReadAsStringAsync();
+                //    Console.WriteLine(responseContent);
+                //}
 
-                if (response2.IsSuccessStatusCode)
-                {
-                    string result = await response2.Content.ReadAsStringAsync();
-                    Console.WriteLine("Result: {0}", result);
-                    string substri = result.Substring(result.IndexOf("Scored Labels") + 16, 4);
-                    NastavTextbox(substri);
+                //if (response2.IsSuccessStatusCode)
+                //{
+                //    string result = await response2.Content.ReadAsStringAsync();
+                //    Console.WriteLine("Result: {0}", result);
+                //    string substri = result.Substring(result.IndexOf("Scored Labels") + 16, 4);
+                //    NastavTextbox(substri);
 
-                }
-                else
-                {
-                    Console.WriteLine(string.Format("The request failed with status code: {0}", response2.StatusCode));
+                //}
+                //else
+                //{
+                //    Console.WriteLine(string.Format("The request failed with status code: {0}", response2.StatusCode));
 
-                    // Print the headers - they include the requert ID and the timestamp,
-                    // which are useful for debugging the failure
-                    Console.WriteLine(response2.Headers.ToString());
+                //    // Print the headers - they include the requert ID and the timestamp,
+                //    // which are useful for debugging the failure
+                //    Console.WriteLine(response2.Headers.ToString());
 
-                    string responseContent = await response2.Content.ReadAsStringAsync();
-                    Console.WriteLine(responseContent);
-                }
+                //    string responseContent = await response2.Content.ReadAsStringAsync();
+                //    Console.WriteLine(responseContent);
+                //}
 
-                if (response3.IsSuccessStatusCode)
-                {
-                    string result = await response3.Content.ReadAsStringAsync();
-                    Console.WriteLine("Result: {0}", result);
-                    string substri = result.Substring(result.IndexOf("Scored Labels") + 16, 4);
-                    NastavTextbox(substri);
+                //if (response3.IsSuccessStatusCode)
+                //{
+                //    string result = await response3.Content.ReadAsStringAsync();
+                //    Console.WriteLine("Result: {0}", result);
+                //    string substri = result.Substring(result.IndexOf("Scored Labels") + 16, 4);
+                //    NastavTextbox(substri);
 
-                }
-                else
-                {
-                    Console.WriteLine(string.Format("The request failed with status code: {0}", response3.StatusCode));
+                //}
+                //else
+                //{
+                //    Console.WriteLine(string.Format("The request failed with status code: {0}", response3.StatusCode));
 
-                    // Print the headers - they include the requert ID and the timestamp,
-                    // which are useful for debugging the failure
-                    Console.WriteLine(response3.Headers.ToString());
+                //    // Print the headers - they include the requert ID and the timestamp,
+                //    // which are useful for debugging the failure
+                //    Console.WriteLine(response3.Headers.ToString());
 
-                    string responseContent = await response3.Content.ReadAsStringAsync();
-                    Console.WriteLine(responseContent);
-                }
+                //    string responseContent = await response3.Content.ReadAsStringAsync();
+                //    Console.WriteLine(responseContent);
+                //}
 
-                if (response4.IsSuccessStatusCode)
-                {
-                    string result = await response4.Content.ReadAsStringAsync();
-                    Console.WriteLine("Result: {0}", result);
-                    string substri = result.Substring(result.IndexOf("Scored Labels") + 16, 4);
-                    NastavTextbox(substri);
+                //if (response4.IsSuccessStatusCode)
+                //{
+                //    string result = await response4.Content.ReadAsStringAsync();
+                //    Console.WriteLine("Result: {0}", result);
+                //    string substri = result.Substring(result.IndexOf("Scored Labels") + 16, 4);
+                //    NastavTextbox(substri);
 
-                }
-                else
-                {
-                    Console.WriteLine(string.Format("The request failed with status code: {0}", response4.StatusCode));
+                //}
+                //else
+                //{
+                //    Console.WriteLine(string.Format("The request failed with status code: {0}", response4.StatusCode));
 
-                    // Print the headers - they include the requert ID and the timestamp,
-                    // which are useful for debugging the failure
-                    Console.WriteLine(response4.Headers.ToString());
+                //    // Print the headers - they include the requert ID and the timestamp,
+                //    // which are useful for debugging the failure
+                //    Console.WriteLine(response4.Headers.ToString());
 
-                    string responseContent = await response4.Content.ReadAsStringAsync();
-                    Console.WriteLine(responseContent);
-                }
+                //    string responseContent = await response4.Content.ReadAsStringAsync();
+                //    Console.WriteLine(responseContent);
+                //}
 
-                if (response5.IsSuccessStatusCode)
-                {
-                    string result = await response5.Content.ReadAsStringAsync();
-                    Console.WriteLine("Result: {0}", result);
-                    string substri = result.Substring(result.IndexOf("Scored Labels") + 16, 4);
-                    NastavTextbox(substri);
+                //if (response5.IsSuccessStatusCode)
+                //{
+                //    string result = await response5.Content.ReadAsStringAsync();
+                //    Console.WriteLine("Result: {0}", result);
+                //    string substri = result.Substring(result.IndexOf("Scored Labels") + 16, 4);
+                //    NastavTextbox(substri);
 
-                }
-                else
-                {
-                    Console.WriteLine(string.Format("The request failed with status code: {0}", response5.StatusCode));
+                //}
+                //else
+                //{
+                //    Console.WriteLine(string.Format("The request failed with status code: {0}", response5.StatusCode));
 
-                    // Print the headers - they include the requert ID and the timestamp,
-                    // which are useful for debugging the failure
-                    Console.WriteLine(response5.Headers.ToString());
+                //    // Print the headers - they include the requert ID and the timestamp,
+                //    // which are useful for debugging the failure
+                //    Console.WriteLine(response5.Headers.ToString());
 
-                    string responseContent = await response5.Content.ReadAsStringAsync();
-                    Console.WriteLine(responseContent);
-                }
+                //    string responseContent = await response5.Content.ReadAsStringAsync();
+                //    Console.WriteLine(responseContent);
+                //}
 
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            InvokeRequestResponseService(textboxInput1.Text, textboxInput2.Text).Wait();
         }
     }
 }
